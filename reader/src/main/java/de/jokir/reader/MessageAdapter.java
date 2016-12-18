@@ -16,16 +16,32 @@ import java.util.List;
 public class MessageAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
-    private List<String> messageList = new ArrayList<>(100);
+    private List<String> list = new ArrayList<>(100);
+    int counter = 0;
+
+    public MessageAdapter(LayoutInflater inflater) {
+        this.inflater = inflater;
+    }
+
+    public void addMessage(String msg) {
+        list.add(++counter + ": " + msg);
+        notifyDataSetChanged();
+    }
+
+    public void clear() {
+        counter = 0;
+        list.clear();
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getCount() {
-        return messageList.size();
+        return list.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return messageList.get(i);
+        return list.get(i);
     }
 
     @Override
