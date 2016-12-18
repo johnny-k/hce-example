@@ -14,8 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "HceReader";
 
-    @BindView(R.id.listView)
-    ListView listView;
+    @BindView(R.id.listView) ListView listView;
 
     private NfcAdapter nfcAdapter;
     private MessageAdapter msgAdapter;
